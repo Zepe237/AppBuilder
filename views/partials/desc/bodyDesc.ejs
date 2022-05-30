@@ -1,0 +1,97 @@
+   <!-- ***** Main Banner Area Start ***** -->
+   <div class="main-banner header-text" id="top">                                                                                                                                                                                                                                                                                        
+    <div class="Modern-Slider">
+      <!-- Item -->
+      <div class="item">
+        <div class="img-fill">
+            <img src="assets/images/slide-01.jpg" alt="">
+            <div class="text-content">
+              <h3>Welcome To Health Application Builder</h3>
+              <h5>Step 1 Specify the name and description of the form</h5>
+              <div class="main" text-align = "center" width = "30%">
+                <form action="/build" method="POST">
+                    <input name ="nameF" type="text" class="form-control form-control-sm mb-3 " id="nameF" placeholder="name of Form">
+                    <textarea name="descF" id="descF" cols="30" rows="5" class="form-control form-control-sm mb-3 d-flex align-item-center" placeholder="@description"></textarea>
+                    <div class="logo  text-white">
+                        Une image ou Logo pour votre Formulaire
+                    </div>
+                    <input type="file" class="form-control" id="profile_pic" name="pic" title="Choisir un logo ou une image"
+                    accept=".jpg, .jpeg, .png"> <br>
+                    <input type="reset" class="btn btn-outline-danger mb-2" value="reset">
+                    <input type="submit" class="btn btn-outline-light mb-2" value="Send">
+                </form>
+              </div>
+              
+            </div>
+        </div>
+      </div>
+</div>
+<div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+<!-- ***** Main Banner Area End ***** -->
+
+
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <div class="left-text-content">
+                    <p>
+                    
+                    @Build your App</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <div class="right-text-content">
+                        <ul class="social-icons">
+                            <li><p>Follow Us</p></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-twitter"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery -->
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/scrollreveal.min.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="assets/js/imgfix.min.js"></script> 
+<script src="assets/js/slick.js"></script> 
+<script src="assets/js/lightbox.js"></script> 
+<script src="assets/js/isotope.js"></script> 
+<script src="jquery-3.3.1.js"></script>
+<!-- Global Init -->
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/script.js"></script>
+
+<script>
+
+    $(function() {
+        var selectedClass = "";
+        $("p").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $("#portfolio").fadeTo(50, 0.1);
+            $("#portfolio div").not("."+selectedClass).fadeOut();
+        setTimeout(function() {
+          $("."+selectedClass).fadeIn();
+          $("#portfolio").fadeTo(50, 1);
+        }, 500);
+            
+        });
+    });
+
+</script>

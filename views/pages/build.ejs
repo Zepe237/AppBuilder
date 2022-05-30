@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        margin: 0;
+        background-image: url("assets/images/tp.jpg") ;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #gauche {
+        float: left;
+        width: 70%;
+        height: 1000px;
+      }
+      #droite {
+        height: 1000px;
+        padding : 10px;
+        padding-left: 71%;
+      }
+      input {
+        margin: 10px 10px 10px 10px;
+        outline: none;
+      }
+      span {
+        margin: 10px 10px;
+      }
+      button {
+        border-radius: 6px;
+        margin: 10px 0 0 10px;
+        background-color: white;
+        border: 1px solid grey;
+        outline: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <button>Export</button>
+    <button>Generate</button>
+    <div id="gauche">
+    </div>
+    <div id="droite">
+      Utilisez ces boutons pour créer votre formulaire<br><br>
+      <button>Label</button>
+      <button>Zone de texte</button>
+      <button>Bouton</button>
+      <button>Radio</button>
+      <button>CheckBox</button>
+      <button>TextArea</button>
+      <button>Select</button>
+      <button>Option</button>
+    </div>
+    
+
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script>
+      var idSelect ;
+      var form ;
+// TEXTE
+      $(function() {     
+        $( 'button:eq(2)').click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="label">Texte du label <input type="text" name="label"  id="label" /><button id="bLabel"> Ok </button></div>');
+          $('#gauche:last').append('<span></span>');
+
+           $("#bLabel").click(function() {
+            $('span:last').append($('#label').val());
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+// CHAMP TEXT
+        $( 'button:eq(3)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="texte">id de la zone de texte <input type="text" name="texte" id="texte" /><button id="bTexte"> Ok </button></div>');
+
+          $('#bTexte').click(function() { 
+            $('span:last').after('<input type="text" class="tousBouton" id="' + ($("#texte").val()) + '"><br />');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+// BOUTON
+        $( 'button:eq(4)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Texte du bouton <input type="text" name="bouton" id="bouton" /><button id="bBouton"> Ok </button></div>');
+
+          $('#bBouton').click(function() { 
+            $('.tousBouton:last').after('<br /><button>' + ($("#bouton").val()) + '</button>');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+// RADIO
+        $( 'button:eq(5)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">id du radio <input type="text" name="bouton" id="Rbouton" />');
+          $('#Rbouton:last').after('<br /><br /><div id="conteneur2"><label for="bouton">name du radio <input type="text" name="bouton" id="Rname" /><button id="bRadio"> Ok </button></div>');
+          $('#bRadio').click(function() { 
+            $('span:last').after('<input type="radio" class="tousBouton" id="' + ($("#Rbouton").val()) + '" name="' + ($("#Rname").val()) + '"><br />');
+            $('hr').remove();
+            $('#conteneur').remove();
+            $('#conteneur2').remove();
+          });
+        });
+// CHECKBOX
+        $( 'button:eq(6)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du checkBox <input type="text" name="bouton" id="Cbouton" /><button id="bCheckBox"> Ok </button></div>');
+
+          $('#bCheckBox').click(function() { 
+            $('span:last').after('<input type="checkbox" class="tousBouton" id="' + ($("#Cbouton").val()) + '"><br />');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+// TEXTAREA
+        $( 'button:eq(7)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du textArea <input type="text" name="bouton" id="Tbouton" /><button id="bTextArea"> Ok </button></div>');
+
+          $('#bTextArea').click(function() { 
+            $('span:last').after('<input type="textarea" class="tousBouton" id="' + ($("#Tbouton").val()) + '"><br />');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+// SELECT
+        $( 'button:eq(8)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du select <input type="text" name="bouton" id="sel" /><button id="bsel"> Ok </button></div>');
+
+          $('#bsel').click(function() { 
+            $('span:last').after('<select class="tousBouton" id="' + ($("#sel").val()) + '"></select><br />');
+              idSelect = $("#sel").val() ;
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
+      });
+// OPTION
+      $( 'button:eq(9)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Value du Option <input type="text" name="bouton" id="opt" /><button id="bopt"> Ok </button></div>');
+
+          $('#bopt').click(function() { 
+            console.log(idSelect);
+            $('#'+idSelect).append('<option>' + ($("#opt").val()) + '</option>');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+          
+          
+        });
+        
+// Exportation du formulaire
+        $( 'button:first' ).click(function() { 
+          form = $('#gauche').html();
+          alert(form);
+          $.ajax({
+            type: 'POST',
+            url : "/download",
+            data : {
+              formulaire :form
+            },
+            beforeSend:function(){
+              alert('votre formulaire est envoyer')
+            }
+          })
+          
+        });
+
+
+
+    </script>
+  </body>
+</html>

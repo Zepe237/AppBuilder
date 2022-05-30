@@ -1,0 +1,35 @@
+.madiv{
+    width: 100%;
+    text-align: center;
+}
+body {
+    margin: 0;
+  }
+  #gauche {
+      margin-top: 200px;
+    float: left;
+    width: 70%;
+    height: 1000px;
+
+  }
+  #droite {
+      margin-top: 75px;
+
+    height: 1000px;
+    padding : 10px;
+    padding-left: 71%;
+  }
+  input {
+    margin: 10px 10px 10px 10px;
+    outline: none;
+  }
+  span {
+    margin: 10px 10px;
+  }
+  button {
+    border-radius: 6px;
+    margin: 10px 0 0 10px;
+    background-color: white;
+    border: 1px solid grey;
+    outline: none;
+  }
