@@ -51,6 +51,7 @@
       <button>TextArea</button>
       <button>Select</button>
       <button>Option</button>
+      <button>SendButton</button>
     </div>
     
 
@@ -75,7 +76,7 @@
           $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="texte">id de la zone de texte <input type="text" name="texte" id="texte" /><button id="bTexte"> Ok </button></div>');
 
           $('#bTexte').click(function() { 
-            $('span:last').after('<input type="text" class="tousBouton" id="' + ($("#texte").val()) + '"><br />');
+            $('span:last').after('<input type="text" class="tousBouton" id="' + ($("#texte").val()) + '" name="' + ($("#texte").val()) + '"><br />');
             $('hr').remove();
             $('#conteneur').remove();
           });
@@ -106,7 +107,7 @@
           $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du checkBox <input type="text" name="bouton" id="Cbouton" /><button id="bCheckBox"> Ok </button></div>');
 
           $('#bCheckBox').click(function() { 
-            $('span:last').after('<input type="checkbox" class="tousBouton" id="' + ($("#Cbouton").val()) + '"><br />');
+            $('span:last').after('<input type="checkbox" class="tousBouton" id="' + ($("#Cbouton").val()) + '" name="' + ($("#Cbouton").val()) + '" value="' + ($("#Cbouton").val()) + '"><br />');
             $('hr').remove();
             $('#conteneur').remove();
           });
@@ -116,7 +117,7 @@
           $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du textArea <input type="text" name="bouton" id="Tbouton" /><button id="bTextArea"> Ok </button></div>');
 
           $('#bTextArea').click(function() { 
-            $('span:last').after('<input type="textarea" class="tousBouton" id="' + ($("#Tbouton").val()) + '"><br />');
+            $('span:last').after('<input type="textarea" class="tousBouton" id="' + ($("#Tbouton").val()) + '" name="' + ($("#Tbouton").val()) + '"><br />');
             $('hr').remove();
             $('#conteneur').remove();
           });
@@ -126,7 +127,7 @@
           $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Id du select <input type="text" name="bouton" id="sel" /><button id="bsel"> Ok </button></div>');
 
           $('#bsel').click(function() { 
-            $('span:last').after('<select class="tousBouton" id="' + ($("#sel").val()) + '"></select><br />');
+            $('span:last').after('<select class="tousBouton" id="' + ($("#sel").val()) + '" name="' + ($("#sel").val()) + '"></select><br />');
               idSelect = $("#sel").val() ;
             $('hr').remove();
             $('#conteneur').remove();
@@ -139,15 +140,25 @@
 
           $('#bopt').click(function() { 
             console.log(idSelect);
-            $('#'+idSelect).append('<option>' + ($("#opt").val()) + '</option>');
+            $('#'+idSelect).append('<option value="' + ($("#opt").val()) + '">' + ($("#opt").val()) + '</option>');
             $('hr').remove();
             $('#conteneur').remove();
           });
           
           
         });
+// SEND Button
+$( 'button:eq(10)' ).click(function() { 
+          $('button:last').after('<br /><br /><hr><div id="conteneur"><label for="bouton">Texte du bouton <input type="text" name="bouton" id="bouton" /><button id="bBouton"> Ok </button></div>');
+
+          $('#bBouton').click(function() { 
+            $('.tousBouton:last').after('<br /><input type = "submit"value ="' + ($("#bouton").val()) + '">');
+            $('hr').remove();
+            $('#conteneur').remove();
+          });
+        });
         
-// Exportation du formulaire
+// Exportation du formulaire apres le click sur le bouton export
         $( 'button:first' ).click(function() { 
           form = $('#gauche').html();
           alert(form);
@@ -164,7 +175,7 @@
           
         });
 
-
+// partie liee a la generation
 
     </script>
   </body>
