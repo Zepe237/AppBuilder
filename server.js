@@ -16,6 +16,8 @@ var codeCss = '/*Code css */.contain{padding: 50px;border: 4px aqua solid;text-a
 // code a inserer dans le fichier JS
 var debutJs = "var express = require('express'); var app = express(); const bp = require('body-parser'); app.use(bp.json()); app.use(bp.urlencoded({ extended: true }));" ;
 var finJS = "app.listen(8081); console.log('Server is listening on port 8081');"
+// creation du contenu du read-me file 
+var readContent = " - Vous devez avoir Node installer dans votre ordinateur \n - ouvrir un terminal a la racine du projet creer \n - Taper la commande npm install \n - s'assurer que le port 8081 n'est pas occuper par une autre application "
 // simple route
 app.post('/', function(request, response){
   console.log(request.body.form);
@@ -69,7 +71,7 @@ graphDBEndpoint
   .catch((err) => {
     console.log(err);
   });
-
+// fin du code liee au graph
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -113,6 +115,7 @@ app.post('/download', function(req, res){
   // creation d'un sous dossier dans le dossier Export
   //creation de la route post dans æe fichier Js generer
   var corpsJs = "app.post('/" +nameF +"', function(request, response){console.log(request.body);response.send('bonjour');});"; 
+  readContent += "Taper la commande node " + nameF +'.js' + " pour lancer le serveur \n - puis ouvrir le fichier " + nameF + ".html";
   fs.mkdir(path.join(__dirname+'/Export/', nameF), (err) => {
       if (err) {
           return console.error(err);
@@ -139,6 +142,12 @@ app.post('/download', function(req, res){
     if (err) throw err;
     console.log('Saved!');
   });
+  // creation du fichier read-me
+  fs.writeFile(__dirname+'/Export/'+ nameF+ '/read-me.md', readContent, function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  });
+
 });
 
 app.listen(8080);

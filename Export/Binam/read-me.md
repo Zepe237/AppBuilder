@@ -1,0 +1,6 @@
+ - Vous devez avoir Node installer dans votre ordinateur 
+ - ouvrir un terminal a la racine du projet creer 
+ - Taper la commande npm install 
+ - s'assurer que le port 8081 n'est pas occuper par une autre applicationTaper la commande node undefined.jspour lancer le serveur 
+ - puis ouvrir le fichier undefined.htmlTaper la commande node Binam.jspour lancer le serveur 
+ - puis ouvrir le fichier Binam.html
