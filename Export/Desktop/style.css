@@ -1,0 +1,18 @@
+/*Code css */.contain{padding: 50px; 
+ border: 4px aqua solid; 
+ text-align: center; 
+ float: center; 
+ border-radius: 10px; 
+ margin-left: 400px; 
+ margin-right: 400px; 
+ margin-top: 10px; 
+ } 
+ 
+input{border-radius: 5px; 
+ margin: 5px; 
+ padding: 2px; 
+ }
+ body{text-align: center; 
+ margin: 0; 
+ padding: 0; 
+} 

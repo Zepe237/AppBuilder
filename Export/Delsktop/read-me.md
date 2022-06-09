@@ -1,0 +1,5 @@
+ - Vous devez avoir Node installer dans votre ordinateur 
+ - ouvrir un terminal a la racine du projet creer 
+ - Taper la commande npm install 
+ - s'assurer que le port 8081 n'est pas occuper par une autre application Taper la commande node Delsktop.js pour lancer le serveur 
+ - puis ouvrir le fichier Delsktop.html

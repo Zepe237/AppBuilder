@@ -5,17 +5,17 @@ const fs = require('fs');
 const path = require('path');
 var nameF ;
 // premiere partie du code html de chaque fichier html creer
-var debut = '<!DOCTYPE html><html lang="en"><head> <link rel="stylesheet" href="style.css"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title></head><body><div class="contain">';
+var debut = '<!DOCTYPE html> \n <html lang="en"> \n <head> \n <link rel="stylesheet" href="style.css"> \n <meta charset="UTF-8"> \n <meta http-equiv="X-UA-Compatible" content="IE=edge"> \n <meta name="viewport" content="width=device-width, initial-scale=1.0"> \n <title>Document</title> \n </head> \n <body> \n <div class="contain">';
 // titre de notre formulaire
 var titre1 ='<h3>';
 var titre2 ='</h3> </br>';
 // code final de notre fichier htlm
-var fin = '</form></div></body></html>' ;
+var fin = '</form> \n </div> \n </body> \n </html>' ;
 // Code a inserer dans le fichier css
-var codeCss = '/*Code css */.contain{padding: 50px;border: 4px aqua solid;text-align: center;float: center;border-radius: 10px;margin-left: 400px;margin-right: 400px;margin-top: 10px;}input{border-radius: 5px;margin: 5px;padding: 2px;}body{text-align: center;margin: 0;padding: 0;}';
+var codeCss = '/*Code css */.contain{padding: 50px; \n border: 4px aqua solid; \n text-align: center; \n float: center; \n border-radius: 10px; \n margin-left: 400px; \n margin-right: 400px; \n margin-top: 10px; \n } \n \ninput{border-radius: 5px; \n margin: 5px; \n padding: 2px; \n }\n body{text-align: center; \n margin: 0; \n padding: 0; \n} \n';
 // code a inserer dans le fichier JS
-var debutJs = "var express = require('express'); var app = express(); const bp = require('body-parser'); app.use(bp.json()); app.use(bp.urlencoded({ extended: true }));" ;
-var finJS = "app.listen(8081); console.log('Server is listening on port 8081');"
+var debutJs = "var express = require('express'); \n var app = express(); \n const bp = require('body-parser'); \n app.use(bp.json()); \n app.use(bp.urlencoded({ extended: true })); \n" ;
+var finJS = "app.listen(8081); \n console.log('Server is listening on port 8081'); \n"
 // creation du contenu du read-me file 
 var readContent = " - Vous devez avoir Node installer dans votre ordinateur \n - ouvrir un terminal a la racine du projet creer \n - Taper la commande npm install \n - s'assurer que le port 8081 n'est pas occuper par une autre application "
 // simple route
@@ -114,7 +114,7 @@ app.post('/download', function(req, res){
   var formulaire = req.body.formulaire ;
   // creation d'un sous dossier dans le dossier Export
   //creation de la route post dans æe fichier Js generer
-  var corpsJs = "app.post('/" +nameF +"', function(request, response){console.log(request.body);response.send('bonjour');});"; 
+  var corpsJs = "app.post('/" +nameF +"', function(request, response){ \n console.log(request.body); \n response.send('bonjour'); \n });"; 
   readContent += "Taper la commande node " + nameF +'.js' + " pour lancer le serveur \n - puis ouvrir le fichier " + nameF + ".html";
   fs.mkdir(path.join(__dirname+'/Export/', nameF), (err) => {
       if (err) {
